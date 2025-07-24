@@ -6,7 +6,7 @@ body{
 }
 .msg{
     height: 100px;
-    font-size: 30px;    
+    font-size: 20px;    
     background-color: blueviolet;
     color: black;
     font-weight: bolder;
@@ -38,6 +38,11 @@ body{
      font-weight: bolder;
      color: black;
 }
+.display_msg{
+    font-size: 2rem;
+    font-weight: bolder;
+    color: black;
+}
 .turn{
     height: 90px;
     width: 50%;
@@ -48,4 +53,50 @@ body{
     margin-left: 20%;
     margin-top: 2rem;
     border-radius: 1rem;
+}
+#reset{
+    height: 10vmin;
+    width: 20vmin;
+    background: purple;
+    font-size: medium;
+    border-radius: 1rem;
+    text-align: center;
+    margin-left: 40%;
+    margin-top: 5%;
+}
+#reset:hover{
+    box-shadow: 1px;
+    cursor: pointer;
+}
+#rock,#paper,#scissors{
+    cursor: pointer;
+}
+
+                    /* media queries for small screens */
+@media only screen and (max-width: 600px){
+    .msg{
+        font-size: 15px;
+    }
+    .score{
+        font-size: 20px;
+        color: blue;
+        font-weight: lighter;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .display_msg{
+        font-size: 15px;
+        font-weight: lighter;
+    }
+    .rck,.ppr,.scr{
+        height: 50px;
+    }
+    #user,#comp{
+        font-size: 20px;
+    }
+    #reset{
+        font-size: 10px;
+        color: wheat;
+        height: 12vmin;
+        width: 25vmin;
+    }
 }
