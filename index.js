@@ -6,13 +6,9 @@ let compScore = document.querySelector("#comp");
 let countUserScore=0;
 let countCompScore=0;
 let p = document.querySelector(".display_msg");
-let winnerMsg = document.querySelector(".finalWinner");
+let resetButton = document.querySelector("#reset");
 const finalWinner = (userChoice,compChoice) => {
            // User Win pattern!
-           console.log(userChoice,compChoice);
-     p.style.fontSize = "2rem";
-    p.style.color = "black";
-    p.style.fontWeight = "bolder";
     if(userChoice===compChoice){
         p.innerText = `[Same choice by both players!]`;
     }else{
@@ -65,23 +61,30 @@ const playGame = (userChoice) => {
      finalWinner(userChoice,compChoice);
      turns++;
      if(turns==5){
-       winnerMsg.style.fontSize = "2rem";
-       winnerMsg.style.color = "#B9375E";
-       winnerMsg.style.fontWeight = "bolder";
-       winnerMsg.style.textAlign = "center";
-       winnerMsg.style.marginTop = "30px";
        let gameWinner = "Both have equal scores!";
         if(countUserScore > countCompScore){gameWinner="You have won the game!";}
        else if(countCompScore > countUserScore){gameWinner="Computer has won the game!";}
-       winnerMsg.innerText = `After considering best of 5, ${gameWinner}`;
+    alert(`After considering best of 5,your score: ${countUserScore} || comp score: ${countCompScore}`);
        btn1.disabled = true;
        btn2.disabled = true;
        btn3.disabled = true;
+    alert("If you wants to start a new game,click on reset button");
+    p.innerText = "";
      }
+     resetButton.addEventListener("click", () =>{
+        countUserScore=0;
+        countCompScore=0;
+        userScore.innerText=0;
+        compScore.innerText=0;
+        turns=0;
+        p.innerText = "";
+        btn1.disabled = false;
+        btn2.disabled = false;
+        btn3.disabled = false;
+     })
 }
 
-
-    btn1.addEventListener("click", () => {
+   btn1.addEventListener("click", () => {
     let userChoice = btn1.getAttribute("id");
      playGame(userChoice);
 });
@@ -95,3 +98,6 @@ btn3.addEventListener("click", () => {
     let userChoice = btn3.getAttribute("id");
     playGame(userChoice);
 });
+
+
+    
